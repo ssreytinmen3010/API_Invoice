@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     libpq-dev && \
-    docker-php-ext-install pdo pdo_pgsql pgsql mbstring zip
+    docker-php-ext-install pdo pdo_pgsql pgsql mbstring zip gd
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
