@@ -35,8 +35,8 @@ RUN composer install \
     --optimize-autoloader \
     --no-scripts \
     --no-interaction \
-    --no-progress
-
+     --no-progress \
+    > /dev/null 2>&1
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html
