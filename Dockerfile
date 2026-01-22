@@ -30,7 +30,14 @@ COPY . .
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-RUN composer install --no-dev --optimize-autoloader --no-scripts --no-interaction
+RUN composer install \
+    --prefer-dist \
+    --no-progress \
+    --no-interaction \
+    --optimize-autoloader \
+    --no-scripts \
+    --no-dev \          # remove if you need dev dependencies
+    --verbose
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html
