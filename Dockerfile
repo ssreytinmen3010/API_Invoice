@@ -15,7 +15,8 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) pdo pdo_pgsql pgsql mbstring zip gd \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
     
 
 # Enable Apache mod_rewrite
