@@ -14,6 +14,9 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     pkg-config \
     docker-php-ext-install pdo pdo_pgsql pgsql mbstring zip gd
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) pdo pdo_pgsql pgsql mbstring zip gd \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
     
 
 # Enable Apache mod_rewrite
