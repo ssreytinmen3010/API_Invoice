@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
     curl \
     libpq-dev && \
     docker-php-ext-install pdo pdo_pgsql pgsql mbstring zip gd
+    sudo apt update
+    sudo apt install libpng-dev
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
