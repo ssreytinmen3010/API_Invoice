@@ -9,9 +9,12 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     libpq-dev && \
+     libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    pkg-config \
     docker-php-ext-install pdo pdo_pgsql pgsql mbstring zip gd
-    sudo apt update
-    sudo apt install libpng-dev
+    
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
