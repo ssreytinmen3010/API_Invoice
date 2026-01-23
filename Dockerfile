@@ -37,6 +37,8 @@ RUN composer install \
     --no-interaction \
      --no-progress \
     > /dev/null 2>&1
+    
+RUN mv .env.production /var/www/.env
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html
