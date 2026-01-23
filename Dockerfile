@@ -44,6 +44,8 @@ RUN mv .env.production /var/www/html/.env
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 755 /var/www/html
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+# Create storage symlink
+RUN php artisan storage:link || true
 
 # Apache: set DocumentRoot to public and fix Directory
 RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
